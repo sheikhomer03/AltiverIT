@@ -12,8 +12,8 @@ export const siteConfig = {
   description: `${brandName} helps businesses buy, renew and manage enterprise technology: software licensing, hardware, cloud and cybersecurity through one point of contact.`,
   contact: {
     phone: {
-      display: "+1 (307) 449-2961",
-      href: "tel:+13074492961",
+      display: "+1 (406) 497-0189",
+      href: "tel:+14064970189",
     },
     email: "procurement@techrynex.com",
     address: {
