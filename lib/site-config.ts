@@ -7,15 +7,14 @@ const brandName = "AltivexIT";
 
 export const siteConfig = {
   name: brandName,
-  // TODO: update url and contact email once the AltivexIT domain is confirmed.
-  url: "https://www.techrynex.com",
+  url: "https://www.altivexit.com",
   description: `${brandName} helps businesses buy, renew and manage enterprise technology: software licensing, hardware, cloud and cybersecurity through one point of contact.`,
   contact: {
     phone: {
       display: "+1 (406) 497-0189",
       href: "tel:+14064970189",
     },
-    email: "procurement@techrynex.com",
+    email: "procurement@altivexit.com",
     address: {
       street: "1001 S. Main St. STE 500",
       locality: "Kalispell, MT 59901",
