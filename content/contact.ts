@@ -28,7 +28,7 @@ export const contactPage = {
     labels: {
       phone: "Phone",
       email: "Email",
-      address: "Office",
+      address: "Business address",
       hours: "Business hours",
       directions: "Get directions",
     },

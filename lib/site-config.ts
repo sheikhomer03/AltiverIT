@@ -16,10 +16,10 @@ export const siteConfig = {
     },
     email: "procurement@altivexit.com",
     address: {
-      street: "1001 S. Main St. STE 500",
-      locality: "Kalispell, MT 59901",
+      street: "212 N. 2nd St. STE 100",
+      locality: "Richmond, KY 40475",
       mapUrl:
-        "https://www.google.com/maps/search/?api=1&query=1001+S.+Main+St.+STE+500,+Kalispell,+MT+59901",
+        "https://www.google.com/maps/search/?api=1&query=212+N.+2nd+St.+STE+100,+Richmond,+KY+40475",
     },
     hours: "Monday to Friday, 9:00 AM to 6:00 PM",
     responseTime: "We reply within one business day.",
