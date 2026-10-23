@@ -1,26 +1,108 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ---------------------------------------------------------------------------
+ * Design tokens
+ * ------------------------------------------------------------------------- */
+@theme {
+  /*
+   * Primary — logo orange.
+   * 400: light orange for buttons (pair with ink text).
+   * 500: logo orange (#f08c1a) for shapes, lines and fills.
+   * 600+: deeper shades that stay readable as text on white (AA).
+   */
+  --color-brand-50: #fff7ed;
+  --color-brand-100: #feebd3;
+  --color-brand-200: #fdd5a6;
+  --color-brand-300: #fbbd70;
+  --color-brand-400: #f8a640;
+  --color-brand-500: #f08c1a;
+  --color-brand-600: #b85806;
+  --color-brand-700: #9f4b07;
+  --color-brand-800: #7f3d09;
+  --color-brand-900: #63300a;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Neutrals — navy-tinted slate; 900 is the logo navy (#0a214f) */
+  --color-ink-950: #061633;
+  --color-ink-900: #0a214f;
+  --color-ink-800: #172d5c;
+  --color-ink-700: #2f4170;
+  --color-ink-600: #4a5a82;
+  --color-ink-500: #6a7798;
+  --color-ink-400: #97a1ba;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --color-surface: #f4f7fb;
+  --color-surface-strong: #e3eaf3;
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-manrope), var(--font-inter), ui-sans-serif,
+    system-ui, sans-serif;
+}
+
+/* ---------------------------------------------------------------------------
+ * Base
+ * ------------------------------------------------------------------------- */
+@layer base {
+  :root {
+    --header-height: 4rem;
+
+    @variant sm {
+      --header-height: 4.25rem;
+    }
+
+    @variant lg {
+      --header-height: 4.5rem;
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+    -webkit-tap-highlight-color: transparent;
+
+    /* Slightly tighter scale on laptop-sized screens; every rem-based size follows. */
+    @variant lg {
+      font-size: 93.75%;
+    }
+
+    @variant 2xl {
+      font-size: 100%;
+    }
+  }
+
+  body {
+    @apply bg-white font-sans text-ink-600 antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight text-ink-900;
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-600;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
 }
