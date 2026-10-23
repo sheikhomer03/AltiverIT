@@ -1,27 +1,12 @@
 "use server";
 
 import { contactPage } from "@/content/contact";
+import { sendContactEmail } from "@/lib/contact-email";
 import {
   HONEYPOT_FIELD,
   validateContactForm,
   type ContactFormState,
-  type ContactMessage,
 } from "@/lib/contact-form";
-
-/**
- * Hands a validated message to its destination.
- *
- * TODO: connect an email or CRM provider (e.g. Resend, Postmark, Zoho CRM)
- * before launch. Until then, messages are only written to the server log.
- */
-async function deliverContactMessage(message: ContactMessage): Promise<void> {
-  console.info("[contact] New message", {
-    name: message.name,
-    email: message.email,
-    company: message.company,
-    topic: message.topic,
-  });
-}
 
 export async function submitContactForm(
   _previousState: ContactFormState,
@@ -43,7 +28,7 @@ export async function submitContactForm(
   }
 
   try {
-    await deliverContactMessage(result.data);
+    await sendContactEmail(result.data);
   } catch (error) {
     console.error("[contact] Delivery failed", error);
     return {
